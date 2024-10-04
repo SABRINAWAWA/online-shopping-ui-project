@@ -1,0 +1,85 @@
+<div class="order-details-container">
+    <h2 class="header">Order Details</h2>
+
+    <div *ngIf="order">
+        <div class="d-flex">
+            <!-- General Order Information -->
+            <div class="order-info card p-2 flex-fill">
+                <div class="card-body">
+                    <h5>Order Info</h5>
+                    <p><strong>Date Placed:</strong> {{ order.datePlaced | date:'medium' }}</p>
+                    <p><strong>Status:</strong> {{ order.orderStatus }}</p>
+                    <p><strong>Item Count:</strong> {{ order.orderItemCount }}</p>
+                </div>
+            </div>
+
+            <!-- Shipping Address -->
+            <div class="address-info card p-2 flex-fill">
+                <div class="card-body">
+                    <h5>Shipping Address</h5>
+                    <p>{{ order.address.street }}</p>
+                    <p>{{ order.address.city }}, {{ order.address.state }} {{ order.address.zipCode }}</p>
+                    <p>{{ order.address.country }}</p>
+                </div>
+            </div>
+        </div>
+        <!-- Order Summary -->
+        <div class="address-info card">
+            <div class="card-body">
+                <h5>Order Summary</h5>
+                <p><strong>Item(s) Subtotal:</strong> ${{ order.subtotal.toFixed(2) }}</p>
+                <p><strong>Estimated tax to be:</strong> ${{ order.tax.toFixed(2) }}</p>
+                <p><strong>Total:</strong> ${{ order.total.toFixed(2) }}</p>
+                <p *ngIf="userRole==='ADMIN'"><strong>Total Profit:</strong> ${{ order.profit.toFixed(2) }}</p>
+            </div>
+        </div>
+
+        <!-- Order Items -->
+        <div class="order-items">
+            <h3 class="header">Items in this Order</h3>
+            <div *ngIf="order && order.orderitems && order.orderitems.length > 0; else noItemsMessage">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Purchased Price</th>
+                            <th>Total Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of order.orderitems; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td *ngIf="userRole==='USER'">{{ item.productName }}</td>
+                            <td *ngIf="userRole==='ADMIN'">{{ item.product.name }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.purchasedPrice | currency }}</td>
+                            <td>{{ item.purchasedPrice * item.quantity | currency }}</td>
+                            <td>
+                                <a class="btn btn-sm btn-primary"
+                                    (click)="goToProductDetailPage(item.orderitemId)">View</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-evenly ">
+                <a *ngIf="order.orderStatus === 'PROCESSING' && userRole==='ADMIN'" class="btn btn-sm btn-success"
+                    (click)="completeOrder(order.orderId)">Complete</a>
+                <a *ngIf="order.orderStatus === 'PROCESSING'" class="btn btn-sm btn-danger"
+                    (click)="cancelOrder(order.orderId)">Cancel</a>
+            </div>
+
+            <ng-template #noItemsMessage>
+                <p>No order items found.</p>
+            </ng-template>
+        </div>
+    </div>
+
+    <div *ngIf="!order">
+        <p>Order details not available.</p>
+    </div>
+</div>

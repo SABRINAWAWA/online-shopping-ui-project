@@ -1,0 +1,49 @@
+<div class="container">
+    <h2>Order List</h2>
+    <div *ngIf="!orders || orders.length === 0" class="alert alert-info">
+        You haven't ordered yet. Please view products and place order in the <a href="/product">Product page</a>.
+    </div>
+    <table *ngIf="orders.length>0" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date Placed</th>
+                <th>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="orderStatusDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Order Status
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="orderStatusDropdown">
+                            <li><a class="dropdown-item" (click)="filterByStatus('ALL')">All</a></li>
+                            <li><a class="dropdown-item" (click)="filterByStatus('PROCESSING')">Processing</a></li>
+                            <li><a class="dropdown-item" (click)="filterByStatus('COMPLETED')">Completed</a></li>
+                            <li><a class="dropdown-item" (click)="filterByStatus('CANCELED')">Canceled</a></li>
+                        </ul>
+                    </div>
+                </th>
+                <th>Item Count</th>
+                <th>Total</th>
+                <th *ngIf="userRole==='ADMIN'">Profit</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr *ngFor="let order of orders; let i=index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ order.datePlaced | date: 'short' }}</td>
+                <td>{{ order.orderStatus }}</td>
+                <td>{{ order.orderItemCount }}</td>
+                <td>{{ order.total | currency }}</td>
+                <td *ngIf="userRole==='ADMIN'">{{ order.profit | currency }}</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" (click)="goToOrderDetailPage(order.orderId)">View</a>
+                    <a *ngIf="order.orderStatus === 'PROCESSING'" class="btn btn-sm btn-danger"
+                        (click)="cancelOrder(order.orderId)">Cancel</a>
+                    <a *ngIf="userRole==='ADMIN' && order.orderStatus === 'PROCESSING'"
+                        class="btn btn-sm btn-success" (click)="completeOrder(order.orderId)">Complete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

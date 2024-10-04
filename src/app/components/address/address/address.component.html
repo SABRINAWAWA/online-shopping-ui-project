@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <h3 class="table-header">Addresses</h3>
+  <table class="table table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>ZIP</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let address of addresses">
+        <td>{{ address.street }}</td>
+        <td>{{ address.city }}</td>
+        <td>{{ address.state }}</td>
+        <td>{{ address.zipCode }}</td>
+        <td>{{ address.country }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="addresses.length === 0" class="alert alert-info">
+    No addresses found for this user. Please add an new address by clicking the following button.
+  </div>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-primary" (click)="goToAddAddressPage()">Add Address</button>
+  </div>
+</div>

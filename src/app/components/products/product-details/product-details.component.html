@@ -1,0 +1,28 @@
+<div class="container">
+    <h2 class="mt-4">Product Information</h2>
+    <div class="row">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>Price:</strong> ${{ product.retailPrice.toFixed(2) }}
+                    </li>
+                    <li *ngIf="product.wholesalePrice" class="list-group-item"><strong>Wholesale Price:</strong> ${{
+                        product.wholesalePrice.toFixed(2)
+                        }}</li>
+                    <li *ngIf="product.quantity" class="list-group-item"><strong>Quantity Available:</strong> {{
+                        product.quantity }}</li>
+                    <li *ngIf="product.categoryName" class="list-group-item"><strong>Category:</strong> {{
+                        product.categoryName }}</li>
+                </ul>
+                <div *ngIf="userRole==='USER'" class="d-flex justify-content-center">
+                    <button class="btn btn-primary mt-3" (click)="addToWatchList(product.productId)">Add to
+                        WatchList</button>
+                </div>
+            </div>
+            <button *ngIf="userRole==='ADMIN'" class="btn btn-primary mt-3" (click)="goToProductPage()">Back</button>
+        </div>
+        <div *ngIf="addProductMessage" class="alert alert-primary">{{ addProductMessage }} You can go to Product Page to view the WatchList.</div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<div *ngIf="userRole=='USER'" class="wrapper d-flex justify-content-evenly">
+    <div *ngIf="freqProducts" class="product-list">
+        <h5>Most Frequent Products</h5>
+        <div *ngIf="freqProducts.length==0">
+            <ul class="list-group">
+                <li class="list-group-item text-center">
+                    No most frequent products.
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="freqProducts.length > 0" class="most-frequent-products mt-4">
+            <ul *ngIf="freqProducts && freqProducts.length > 0" class="list-group">
+                <li *ngFor="let product of freqProducts; let i = index" class="list-group-item">
+                    <strong>{{ i + 1 }}.</strong> {{ product.name }}
+                    <br> <strong>Description:</strong> {{ product.description }}
+                    <br> <strong>Category:</strong> {{ product.categoryName }}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div *ngIf="recentProducts" class="product-list">
+        <h5>Most Recent Products</h5>
+        <div *ngIf="recentProducts.length==0">
+            <ul class="list-group">
+                <li class="list-group-item text-center">
+                    No most recent products.
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="recentProducts.length > 0" class="most-recent-products mt-4">
+            <ul *ngIf="recentProducts && recentProducts.length > 0" class="list-group">
+                <li *ngFor="let product of recentProducts; let i = index" class="list-group-item">
+                    <strong>{{ i + 1 }}.</strong> {{ product.name }}
+                    <br> <strong>Description:</strong> {{ product.description }}
+                    <br> <strong>Category:</strong> {{ product.categoryName }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="userRole=='ADMIN'" class="wrapper d-flex justify-content-evenly">
+    <div *ngIf="profitProducts" class="product-list">
+        <div *ngIf="profitProducts.length==0">
+            <ul class="list-group">
+                <li class="list-group-item text-center">
+                    No most profit products.
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="profitProducts.length > 0" class="most-profit-products mt-4">
+            <h5>Most Profit Products</h5>
+            <ul *ngIf="profitProducts && profitProducts.length > 0" class="list-group">
+                <li *ngFor="let product of profitProducts; let i = index" class="list-group-item">
+                    <strong>{{ i + 1 }}.</strong> {{ product.product.name }}
+                    <br> <strong>Description:</strong> {{ product.product.description }}
+                    <br> <strong>Category:</strong> {{ product.product.categoryName }}
+                    <br> <strong>Total Profit:</strong> {{product.profit|currency}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div *ngIf="popularProducts" class="product-list">
+        <div *ngIf="popularProducts.length==0">
+            <ul class="list-group">
+                <li class="list-group-item text-center">
+                    No most popular products.
+                </li>
+            </ul>
+        </div>
+        <div *ngIf="popularProducts.length > 0" class="most-popular-products mt-4">
+            <h5>Most Popular Products</h5>
+            <ul *ngIf="popularProducts && popularProducts.length > 0" class="list-group">
+                <li *ngFor="let product of popularProducts; let i = index" class="list-group-item">
+                    <strong>{{ i + 1 }}.</strong> {{ product.product.name }}
+                    <br> <strong>Description:</strong> {{ product.product.description }}
+                    <br> <strong>Category:</strong> {{ product.product.categoryName }}
+                    <br> <strong>Total Sold:</strong> {{product.counts}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

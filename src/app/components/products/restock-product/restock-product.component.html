@@ -1,0 +1,41 @@
+<div class="wrapper">
+    <form [formGroup]="restockForm" (ngSubmit)="restockProducts()" class="row g-3" class="restock-form">
+        <h2 class="mt-4">Restock Products</h2>
+        <div *ngIf="lowStockProducts.length==0" class="card mb-3">
+            <p>No Low Stock Products</p>
+        </div>
+        <div *ngIf="lowStockProducts.length>0" formArrayName="restockItems">
+            <div *ngFor="let restockItem of restockItems.controls; let i = index" [formGroupName]="i" class="card mb-3">
+                <div class="row mb-3">
+                    <label for="productName-{{i}}" class="col-sm-4 col-form-label">Product Name:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="productName-{{i}}" [value]="lowStockProducts[i]?.name"
+                            class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="currentStock-{{i}}" class="col-sm-4 col-form-label">Current Stock:</label>
+                    <div class="col-sm-8">
+                        <input type="number" id="currentStock-{{i}}" [value]="lowStockProducts[i]?.quantity"
+                            class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="category-{{i}}" class="col-sm-4 col-form-label">Category:</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="category-{{i}}" [value]="lowStockProducts[i]?.categoryName"
+                            class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="quantity-{{i}}" class="col-sm-4 col-form-label">Restock Quantity:</label>
+                    <div class="col-sm-8">
+                        <input type="number" id="quantity-{{i}}" formControlName="quantity"
+                            placeholder="Enter restock quantity" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Restock Products</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,26 @@
+body {
+    background: #eee !important;
+}
+
+.wrapper {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.register-form {
+    max-width: 640px;
+    padding: 15px 35px 45px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    .register-form-header{
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .redirect-link{
+        margin: auto;
+    }
+    .alert-danger{
+        font: 13px sans-serif;
+    }
+}

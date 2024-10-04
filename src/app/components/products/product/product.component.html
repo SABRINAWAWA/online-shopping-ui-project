@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-evenly">
+    <app-watch-list [watchlistProducts]="watchlistProducts" (watchListChanged)="updateWatchList($event)"></app-watch-list>
+    <app-shopping-cart></app-shopping-cart>
+</div>
+<div class="container">
+    <h2 class="mt-4">Product List</h2>
+    <div *ngIf="userRole==='ADMIN'" class="d-flex justify-content-evenly">
+        <button class="btn btn-primary mt-3" (click)="goToAddProductPage()">Add New Product</button>
+        <button class="btn btn-primary mt-3" (click)="goToLowStockProductPage()">View and Restock Low Stock Products</button>
+    </div>
+    <div *ngIf="addProductMessage" class="alert alert-warning" role="alert">
+        {{addProductMessage}}
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th *ngIf="userRole==='ADMIN'" scope="col">Quantity</th>
+                <th scope="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Category
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                            <li><a class="dropdown-item" (click)="filterByCategory(0)">All</a></li>
+                            <li *ngFor="let category of categories;"><a class="dropdown-item" (click)="filterByCategory(category.id)">{{category.description}}</a></li>
+                        </ul>
+                    </div>
+                </th>
+                <th scope="col" colspan="2" class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>${{ product.retailPrice.toFixed(2) }}</td>
+                <td *ngIf="userRole==='ADMIN'">{{ product.quantity }}</td>
+                <td>{{ product.categoryName }}</td>
+                
+                <td class="text-center">
+                    <button class="btn btn-outline-info btn-sm"
+                        (click)="goToProductDetailPage(product.productId)">View</button>
+                </td>
+                <td *ngIf="userRole==='USER'" class="text-center">
+                    <button class="btn btn-outline-warning btn-sm" (click)="addToWatchList(product.productId)">Add to
+                        Watchlist</button>
+                </td>
+                <td *ngIf="userRole==='USER'" class="text-center">
+                    <button class="btn btn-outline-success btn-sm" (click)="addToCart(product)">Add to
+                        Shopping Cart</button>
+                </td>
+                <td *ngIf="userRole==='ADMIN'" class="text-center">
+                    <button class="btn btn-warning btn-sm"
+                        (click)="goToUpdateProductPage(product.productId)">Update</button>
+                </td>
+            </tr>
+            <tr *ngIf="products.length === 0">
+                <td colspan="5" class="text-center">No products available.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

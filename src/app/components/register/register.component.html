@@ -1,0 +1,91 @@
+<div class="wrapper">
+  <form (ngSubmit)="OnSignUp()" #userForm="ngForm" class="register-form" ngNativeValidate>
+    <h3 class="register-form-header">Register</h3>
+    <!-- Username field -->
+    <div class="row mb-3">
+      <label for="username" class="col-sm-3 col-form-label">Username</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="username" [(ngModel)]="user.username" name="username" minlength="2"
+          maxlength="50" #username="ngModel" required>
+        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+          <div *ngIf="username.errors?.['required']">Username is required.</div>
+          <div *ngIf="username.errors?.['minlength']">
+            Username must be at least 2 characters long.
+          </div>
+          <div *ngIf="username.errors?.['maxlength']">
+            Username must be less than 50 characters long.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- First Name field -->
+    <div class="row mb-3">
+      <label for="firstname" class="col-sm-3 col-form-label">First Name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="firstname" [(ngModel)]="user.firstname" name="firstname"
+          minlength="2" maxlength="50" #firstname="ngModel" required>
+        <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+          <div *ngIf="firstname.errors?.['required']">First Name is required.</div>
+          <div *ngIf="firstname.errors?.['minlength']">
+            First Name must be at least 2 characters long.
+          </div>
+          <div *ngIf="firstname.errors?.['maxlength']">
+            First Name must be less than 50 characters long.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Last Name field -->
+    <div class="row mb-3">
+      <label for="lastname" class="col-sm-3 col-form-label">Last Name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="lastname" [(ngModel)]="user.lastname" name="lastname" minlength="2"
+          maxlength="50" #lastname="ngModel" required>
+        <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+          <div *ngIf="lastname.errors?.['required']">Last Name is required.</div>
+          <div *ngIf="lastname.errors?.['minlength']">
+            Last Name must be at least 2 characters long.
+          </div>
+          <div *ngIf="lastname.errors?.['maxlength']">
+            Last Name must be less than 50 characters long.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email field -->
+    <div class="row mb-3">
+      <label for="email" class="col-sm-3 col-form-label">Email</label>
+      <div class="col-sm-9">
+        <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" #email="ngModel" required email>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+          <div *ngIf="email.errors?.['required']">Email is required.</div>
+          <div *ngIf="email.errors?.['email']">Please provide valid email address.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Password field -->
+    <div class="row mb-3">
+      <label for="password" class="col-sm-3 col-form-label">Password</label>
+      <div class="col-sm-9">
+        <input type="password" id="password" class="form-control" name="password" [(ngModel)]="user.password"
+          name="password" pattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\S+$).{8,}$"
+          #password="ngModel" required>
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+          <div *ngIf="password.errors?.['required']">Password is required.</div>
+          <div *ngIf="password.errors?.['pattern']">Password must be at least 8 characters long, contain at least one
+            digit, one uppercase letter, one lowercase letter, and one special character (.*[&#64;$!%*#?&]).</div>
+        </div>
+      </div>
+    </div>
+    <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary">Sign up</button>
+      <a routerLink="/login" class="redirect-link">Already have an account? Login here!</a>
+    </div>
+    <!-- Display the signup message here -->
+    <div *ngIf="signUpMessage" class="alert alert-info">{{ signUpMessage }}</div>
+  </form>
+</div>

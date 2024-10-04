@@ -1,0 +1,66 @@
+<div *ngIf="userRole==='USER'" class="container">
+    <h2 class="mt-4">Checkout</h2>
+    <form [formGroup]="placeOrderForm" (ngSubmit)="placeOrder()">
+        <div class="address-section">
+            <h5>Delivering To: </h5>
+            <div *ngIf="addresses.length>0">
+                <div *ngFor="let address of addresses">
+                    <label>
+                        <input type="radio" formControlName="address" [value]="address.addressId">
+                        {{ address.street }}, {{ address.city }}, {{ address.state }} {{ address.zipCode }}, {{
+                        address.country }}
+                    </label>
+                </div>
+            </div>
+            <div *ngIf="addresses.length === 0" class="alert alert-info">
+                No addresses found for this user. Please add an new address by clicking the following button.
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-primary" (click)="goToAddAddressPage()">Add Address</button>
+                </div>
+            </div>
+        </div>
+        <div class="cart-items-section" formArrayName="orderitems">
+            <h5>Your Cart Items</h5>
+            <div *ngFor="let cartitem of orderitems.controls; let i = index" [formGroupName]="i" class="card cart-item">
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-sm-9">
+                            <p class="card-title">{{ cartitem.get('name')?.value }}</p>
+                            <p class="card-subtitle mb-2 text-body-secondary">{{ cartitem.get('description')?.value }}
+                            </p>
+                            <p class="card-text"><strong>Price:</strong> {{ cartitem.get('retailPrice')?.value |
+                                currency }}
+                            </p>
+                        </div>
+                        <div class="col-sm-3">
+                            <a class="btn btn-danger btn-sm"
+                                (click)="removeFromCart(i)">Remove</a>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="quantity" class="col-sm-3 col-form-label">Quantity:</label>
+                        <div class="col-sm-9">
+                            <input type="number" formControlName="quantity" min="1">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <li *ngIf="getCartItems().length === 0" class="list-group-item text-center">
+                No products in your shopping cart. <br>
+                Please go to product and select some products. <br>
+                <button class="btn btn-light btn-sm" (click)="goToProductPage()">Products</button>
+            </li>
+            <div *ngIf="getCartItems().length !== 0"class="list-group-item d-flex justify-content-evenly">
+                <button type="submit" class="btn btn-warning btn-sm">Place Order</button>
+                <button class="btn btn-light btn-sm" (click)="goToProductPage()">Cancel</button>
+            </div>
+        </div>
+        <!-- Display the checkout message here -->
+        <div *ngIf="checkoutMessage" class="alert alert-info">{{ checkoutMessage }}</div>
+
+    </form>
+</div>

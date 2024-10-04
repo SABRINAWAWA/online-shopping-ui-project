@@ -1,0 +1,19 @@
+<div>
+    <h4 class="title">Welcome To Super Duper Store!</h4>
+    <app-general-info (productsEmitted)="onProductsReceived($event)"></app-general-info>
+    <div class="container">
+        <div *ngIf="userRole==='ADMIN'">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <p><strong>Total Completed Orders: </strong>{{totalCompletedOrders}}</p>
+                </li>
+                <li class="list-group-item">
+                    <p><strong>Total Products Sold: </strong>{{totalProductSold}}</p>
+                </li>
+                <li class="list-group-item">
+                    <p><strong>Total Profits: </strong>{{totalProfit|currency}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
