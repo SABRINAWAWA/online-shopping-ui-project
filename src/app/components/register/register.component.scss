@@ -1,26 +1,106 @@
-body {
-    background: #eee !important;
-}
-
 .wrapper {
-    margin-top: 80px;
-    margin-bottom: 80px;
-}
-
-.register-form {
-    max-width: 640px;
-    padding: 15px 35px 45px;
-    margin: 0 auto;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    .register-form-header{
-        margin-bottom: 30px;
-        text-align: center;
+    max-width: 650px; // Max width for the form
+    margin: 3rem auto; // Center the form vertically and horizontally
+    padding: 2rem; // Padding inside the wrapper
+    background-color: #ffffff; // White background for the form
+    border-radius: 10px; // Rounded corners
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Shadow effect for depth
+  
+    // Header styling
+    .register-form-header {
+      text-align: center; // Center the header
+      font-size: 2rem; // Font size for the header
+      margin-bottom: 2rem; // Space below the header
+      color: #343a40; // Dark color for the header
     }
-    .redirect-link{
-        margin: auto;
+  
+    // Form labels
+    .col-form-label {
+      font-size: 1rem; // Font size for labels
+      color: #495057; // Label color
     }
-    .alert-danger{
-        font: 13px sans-serif;
+  
+    // Input fields
+    .form-control {
+      font-size: 1rem; // Font size for inputs
+      padding: 0.75rem; // Padding inside the inputs
+      border-radius: 5px; // Rounded corners for inputs
+      border: 1px solid #ced4da; // Light gray border
+      transition: border-color 0.3s ease, box-shadow 0.3s ease; // Smooth transition on focus
+  
+      &:focus {
+        border-color: #80bdff; // Border color on focus
+        outline: none; // Remove outline
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.25); // Shadow effect on focus
+      }
     }
-}
+  
+    // Error messages
+    .alert {
+      margin-top: 0.5rem; // Margin above the error message
+      font-size: 0.9rem; // Font size for error messages
+      padding: 0.75rem; // Padding inside the error messages
+      border-radius: 5px; // Rounded corners for error messages
+  
+      &.alert-danger {
+        background-color: #f8d7da; // Light red background for error messages
+        color: #721c24; // Dark red text
+        border-color: #f5c6cb; // Border color for error messages
+      }
+  
+      &.alert-info {
+        background-color: #d1ecf1; // Light blue background for info messages
+        color: #0c5460; // Dark blue text
+        border-color: #bee5eb; // Border color for info messages
+      }
+    }
+  
+    // Submit button styling
+    .btn-primary {
+      background-color: #007bff; // Primary button background color
+      border-color: #007bff; // Primary button border color
+      color: #fff; // White text color
+      font-size: 1.2rem; // Font size for button text
+      padding: 0.75rem; // Padding inside the button
+      border-radius: 5px; // Rounded corners for button
+      transition: background-color 0.3s; // Smooth transition for hover effect
+  
+      &:hover {
+        background-color: #0056b3; // Darker shade on hover
+        border-color: #0056b3; // Darker border on hover
+      }
+    }
+  
+    // Redirect link styling
+    .redirect-link {
+      display: block; // Make link a block element
+      text-align: center; // Center the link
+      margin-top: 1rem; // Margin above the link
+      color: #007bff; // Blue link color
+      text-decoration: none; // No underline for link
+  
+      &:hover {
+        text-decoration: underline; // Underline on hover
+      }
+    }
+  
+    // Responsive adjustments for smaller screens
+    @media (max-width: 768px) {
+      padding: 1.5rem; // Adjust padding for smaller screens
+  
+      .register-form-header {
+        font-size: 1.5rem; // Smaller font size for header
+      }
+  
+      .form-control {
+        font-size: 0.9rem; // Smaller font size for inputs
+        padding: 0.6rem; // Adjust padding for inputs
+      }
+  
+      .btn-primary {
+        font-size: 1rem; // Smaller font size for button
+        padding: 0.6rem; // Adjust padding for button
+      }
+    }
+  }
+  

@@ -1,22 +1,105 @@
 .wrapper {
-    margin-top: 80px;
-    margin-bottom: 80px;
-}
-
-.update-product-form {
-    max-width: 580px;
-    padding: 15px 35px 45px;
-    margin: 0 auto;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    .product-form-header{
-        margin-bottom: 30px;
-        text-align: center;
+    max-width: 600px; // Restrict the maximum width of the form for better readability
+    margin: 2rem auto; // Center the wrapper and add vertical margin
+  
+    .update-product-form {
+      padding: 2rem; // Padding around the form for better spacing
+      border: 1px solid #ced4da; // Border around the form
+      border-radius: 0.5rem; // Rounded corners
+      background-color: #ffffff; // White background for the form
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+  
+      .address-form-header {
+        text-align: center; // Center the header
+        margin-bottom: 2rem; // Space below the header
+        font-size: 1.5rem; // Larger font size for the header
+        color: #007bff; // Primary color for the header
+      }
+  
+      .row {
+        margin-bottom: 1.5rem; // Space between form groups
+  
+        label {
+          font-weight: bold; // Bold text for labels
+        }
+  
+        .col-form-label {
+          text-align: right; // Align labels to the right
+        }
+  
+        .error {
+          color: #dc3545; // Red color for error messages
+          margin-top: 0.5rem; // Space above error messages
+        }
+      }
+  
+      // Input and textarea styles
+      .form-control {
+        border: 1px solid #ced4da; // Standard border for inputs
+        border-radius: 0.25rem; // Rounded corners for inputs
+  
+        &:focus {
+          border-color: #007bff; // Change border color on focus
+          box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); // Add shadow on focus
+        }
+      }
+  
+      // Alert styles
+      .alert {
+        margin-top: 0.5rem; // Space above alerts
+        border-radius: 0.25rem; // Rounded corners for alerts
+      }
+  
+      .alert-danger {
+        background-color: #f8d7da; // Light red background for danger alerts
+        border-color: #f5c6cb; // Red border for danger alerts
+        color: #721c24; // Dark red text color for danger alerts
+      }
+  
+      .alert-info {
+        background-color: #d1ecf1; // Light blue background for info alerts
+        border-color: #bee5eb; // Blue border for info alerts
+        color: #0c5460; // Dark blue text color for info alerts
+      }
+  
+      // Button styles
+      .btn {
+        width: 100%; // Full width buttons
+        padding: 0.5rem; // Padding for buttons
+        font-size: 1rem; // Standard font size for buttons
+        margin-top: 1rem; // Space above buttons
+  
+        &.btn-primary {
+          background-color: #007bff; // Primary button color
+          border: none; // Remove default border
+  
+          &:hover {
+            background-color: #0056b3; // Darker shade on hover
+          }
+  
+          &:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); // Focus outline shadow
+          }
+        }
+  
+        &.btn-secondary {
+          background-color: #6c757d; // Secondary button color
+          border: none; // Remove default border
+  
+          &:hover {
+            background-color: #5a6268; // Darker shade on hover
+          }
+  
+          &:focus {
+            box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.5); // Focus outline shadow
+          }
+        }
+      }
+  
+      .d-flex {
+        justify-content: space-between; // Space between buttons in a flex container
+        margin-top: 2rem; // Space above the button container
+      }
     }
-    .redirect-link{
-        margin: auto;
-    }
-    .alert-danger{
-        font: 13px sans-serif;
-    }
-}
+  }
+  

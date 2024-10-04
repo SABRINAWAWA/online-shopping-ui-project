@@ -1,0 +1,91 @@
+.container {
+    max-width: 700px; // Restrict the width of the container for better readability
+    margin: 2rem auto; // Center the container and add margin at the top and bottom
+  
+    h2 {
+      text-align: center; // Center the heading
+      margin-bottom: 1.5rem; // Space below the heading
+      color: #343a40; // Dark text color for better contrast
+    }
+  
+    .row {
+      display: flex;
+      justify-content: center; // Center the row contents
+    }
+  
+    .card {
+      width: 100%; // Make card take full width within the container
+      border: none; // Remove default border
+      border-radius: 0.5rem; // Add rounded corners
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); // Soft shadow for depth
+      margin-bottom: 1.5rem; // Space below the card
+  
+      .card-body {
+        padding: 2rem; // Add padding inside the card body
+        background-color: #fff; // White background for the card body
+      }
+  
+      .card-title {
+        font-size: 1.5rem; // Larger font size for the title
+        margin-bottom: 1rem; // Space below the title
+        color: #007bff; // Primary color for the title
+        font-weight: bold; // Bold title
+      }
+  
+      .card-text {
+        font-size: 1rem; // Standard font size for the description
+        color: #6c757d; // Muted color for the text
+        margin-bottom: 1.5rem; // Space below the description
+      }
+  
+      .list-group-item {
+        border: none; // Remove default border between items
+        padding: 0.75rem 1.5rem; // Padding inside list items
+        background-color: #f8f9fa; // Light background for the list items
+        font-size: 1rem; // Standard font size for the list items
+  
+        &:not(:last-child) {
+          border-bottom: 1px solid #dee2e6; // Add separator between list items
+        }
+  
+        strong {
+          font-weight: bold; // Bold text for labels
+        }
+      }
+  
+      .btn-primary {
+        background-color: #007bff; // Primary button color
+        border: none; // Remove default border
+        border-radius: 0.25rem; // Rounded corners for the button
+        padding: 0.5rem 1rem; // Padding for the button
+        font-size: 1rem; // Standard font size for the button
+  
+        &:hover {
+          background-color: #0056b3; // Darker shade on hover
+        }
+  
+        &:focus {
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5); // Focus outline shadow
+        }
+  
+        &.mt-3 {
+          margin-top: 1.5rem; // Space above buttons
+        }
+      }
+  
+      .d-flex {
+        justify-content: center; // Center the buttons inside the flex container
+      }
+  
+      .alert-primary {
+        margin-top: 1.5rem; // Space above the alert
+        padding: 1rem; // Padding for the alert
+        background-color: #cfe2ff; // Light blue background for info alert
+        color: #084298; // Darker blue text color for info alert
+        border: 1px solid #b6d4fe; // Light blue border
+        border-radius: 0.25rem; // Rounded corners for alert
+        text-align: center; // Center the text inside the alert
+      }
+    }
+  }
+  

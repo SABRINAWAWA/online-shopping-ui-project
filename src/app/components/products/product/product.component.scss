@@ -1,0 +1,140 @@
+// SCSS for Product List Page
+.d-flex {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+
+    app-watch-list, app-shopping-cart {
+        margin: 10px;
+    }
+}
+
+.container {
+    margin-top: 20px;
+
+    h2 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        margin-bottom: 15px;
+    }
+
+    .alert {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+
+        thead {
+            background-color: #f8f9fa;
+
+            th {
+                padding: 15px;
+                text-align: center;
+                vertical-align: middle;
+                font-weight: bold;
+                border-bottom: 2px solid #dee2e6;
+            }
+        }
+
+        tbody {
+            tr {
+                &:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+
+                td, th {
+                    padding: 12px;
+                    text-align: center;
+                    border-bottom: 1px solid #dee2e6;
+                }
+
+                .btn {
+                    margin: 0 5px;
+                    padding: 5px 10px;
+                }
+
+                .btn-outline-info {
+                    color: #17a2b8;
+                    border-color: #17a2b8;
+
+                    &:hover {
+                        background-color: #17a2b8;
+                        color: #fff;
+                    }
+                }
+
+                .btn-outline-warning {
+                    color: #ffc107;
+                    border-color: #ffc107;
+
+                    &:hover {
+                        background-color: #ffc107;
+                        color: #000;
+                    }
+                }
+
+                .btn-outline-success {
+                    color: #28a745;
+                    border-color: #28a745;
+
+                    &:hover {
+                        background-color: #28a745;
+                        color: #fff;
+                    }
+                }
+
+                .btn-warning {
+                    background-color: #ffc107;
+                    border-color: #ffc107;
+
+                    &:hover {
+                        background-color: #e0a800;
+                        border-color: #d39e00;
+                    }
+                }
+
+                &:last-child td {
+                    border-bottom: none;
+                }
+            }
+
+            tr.no-products {
+                td {
+                    text-align: center;
+                    font-weight: bold;
+                    color: #6c757d;
+                }
+            }
+        }
+    }
+}
+
+.dropdown {
+    .dropdown-toggle {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .dropdown-menu {
+        li {
+            .dropdown-item {
+                padding: 10px;
+                font-size: 14px;
+
+                &:hover {
+                    background-color: #f8f9fa;
+                    color: #000;
+                }
+            }
+        }
+    }
+}

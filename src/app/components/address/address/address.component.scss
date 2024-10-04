@@ -1,12 +1,114 @@
-body {
-    background: #eee !important;
-}
-
 .wrapper {
-    margin: 80px;
-}
-
-.table-header{
-    margin-bottom: 30px;
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 2rem auto;
     text-align: center;
-}
+  
+    // Header for the table
+    .table-header {
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+  
+    // Style for table and hover effects
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+  
+      // Styling for table headers
+      .table-dark {
+        background-color: #34495e;
+        color: #fff;
+  
+        th {
+          padding: 1rem;
+          text-align: center;
+        }
+      }
+  
+      // Styling for table rows
+      tr {
+        transition: background-color 0.2s ease-in-out;
+  
+        &:hover {
+          background-color: #ecf0f1;
+        }
+      }
+  
+      // Styling for table cells
+      td {
+        padding: 1rem;
+        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+        font-size: 1.1rem;
+        color: #2c3e50;
+      }
+    }
+  
+    // Alert when there are no addresses
+    .alert {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      background-color: #dfe6e9;
+      color: #2d3436;
+      border: 1px solid #b2bec3;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+  
+    // Button styling for adding addresses
+    .btn-primary {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background-color: #3498db;
+      border-color: #2980b9;
+      border-radius: 8px;
+      color: #fff;
+      transition: background-color 0.2s ease-in-out;
+  
+      &:hover {
+        background-color: #2980b9;
+        border-color: #1e6f9b;
+      }
+    }
+  
+    // Centering and grid styles for the button
+    .d-grid {
+      margin-top: 2rem;
+    }
+  }
+  
+  // Responsive Design for Mobile Screens
+  @media (max-width: 768px) {
+    .wrapper {
+      padding: 1.5rem;
+    }
+  
+    .table-header {
+      font-size: 1.8rem;
+    }
+  
+    .table {
+      font-size: 1rem;
+  
+      td {
+        padding: 0.8rem;
+      }
+  
+      th {
+        padding: 0.8rem;
+      }
+    }
+  
+    .btn-primary {
+      padding: 0.8rem 1.5rem;
+      font-size: 1.1rem;
+    }
+  }
+  

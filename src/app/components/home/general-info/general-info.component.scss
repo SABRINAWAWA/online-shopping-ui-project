@@ -1,12 +1,94 @@
+// Wrapper for the sections
 .wrapper {
-    margin-top: 10px;
-    margin-bottom: 40px;
-    margin-left: 40px;
-    margin-right: 40px;
-}
-
-.product-list {
-    width:450px;
-    margin: 10px;
-    font-size: 13px;
-}
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 1200px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  // Product list container
+  .product-list {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    width: 100%;
+    max-width: 550px;
+  
+    h5 {
+      font-size: 1.6rem;
+      color: #34495e;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+  }
+  
+  // List group styling
+  .list-group {
+    padding: 0;
+    list-style: none;
+    
+    .list-group-item {
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      background-color: #fdfdfd;
+      font-size: 1.2rem;
+      line-height: 1.5;
+  
+      // Strong text for highlighting
+      strong {
+        color: #16a085;
+        font-weight: 600;
+      }
+  
+      // Currency and counts formatting
+      currency, .counts {
+        font-size: 1.1rem;
+        font-weight: bold;
+        color: #2c3e50;
+      }
+    }
+  
+    // Message when there are no products
+    .text-center {
+      color: #7f8c8d;
+      font-size: 1.2rem;
+      text-align: center;
+      font-style: italic;
+    }
+  }
+  
+  // Responsive design
+  @media (max-width: 768px) {
+    .wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .product-list {
+      max-width: 100%;
+      margin: 1rem 0;
+    }
+  
+    .list-group-item {
+      font-size: 1rem;
+      padding: 0.8rem;
+    }
+  }
+  
+  // Additional margins for product categories
+  .most-frequent-products,
+  .most-recent-products,
+  .most-profit-products,
+  .most-popular-products {
+    margin-top: 2rem;
+  }
+  

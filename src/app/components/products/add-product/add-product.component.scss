@@ -1,22 +1,97 @@
-.wrapper {
-    margin-top: 80px;
-    margin-bottom: 80px;
-}
 
-.add-product-form {
-    max-width: 580px;
-    padding: 15px 35px 45px;
-    margin: 0 auto;
-    background-color: #fff;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    .product-form-header{
-        margin-bottom: 30px;
-        text-align: center;
+.wrapper {
+    max-width: 600px; // Limit the width of the form
+    margin: 2rem auto; // Center the form horizontally with margin on top and bottom
+    padding: 2rem;
+    background-color: #fff; // White background for the form
+    border-radius: 0.5rem; // Rounded corners
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+  
+    .add-product-form {
+      .product-form-header {
+        font-size: 1.75rem; // Large font size for the header
+        margin-bottom: 1.5rem; // Space below the header
+        color: #343a40; // Dark color for text
+        text-align: center; // Center align the header
+      }
+  
+      .row {
+        margin-bottom: 1.5rem; // Space below each row
+  
+        label {
+          font-weight: bold; // Bold text for labels
+        }
+  
+        .col-form-label {
+          font-size: 1rem; // Set a standard font size for labels
+        }
+  
+        .form-control {
+          height: calc(2.25rem + 2px); // Increase height for better usability
+          border: 1px solid #ced4da; // Standard border color
+          border-radius: 0.25rem; // Rounded corners for inputs
+  
+          &:focus {
+            border-color: #80bdff; // Border color on focus
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); // Shadow on focus
+          }
+        }
+  
+        .alert {
+          margin-top: 0.5rem; // Space above error messages
+          font-size: 0.875rem; // Smaller font size for alerts
+          border: 1px solid #dc3545; // Red border for error messages
+          background-color: #f8d7da; // Light red background for error messages
+          color: #721c24; // Dark red text color for error messages
+          padding: 0.5rem; // Padding inside alerts
+          border-radius: 0.25rem; // Rounded corners for alerts
+        }
+  
+        .error {
+          color: #dc3545; // Red color for error text
+          font-size: 0.875rem; // Smaller font size for error text
+          margin-top: 0.25rem; // Space above error text
+        }
+      }
+  
+      .d-flex {
+        justify-content: space-between; // Space buttons evenly
+        margin-top: 2rem; // Space above button group
+  
+        .btn {
+          width: 48%; // Set width to make buttons align nicely
+          padding: 0.5rem; // Padding for buttons
+          font-size: 1rem; // Standard font size for buttons
+          border-radius: 0.25rem; // Rounded corners for buttons
+  
+          &.btn-primary {
+            background-color: #007bff; // Primary button color
+            border: none;
+  
+            &:hover {
+              background-color: #0056b3; // Darker shade on hover
+            }
+          }
+  
+          &.btn-secondary {
+            background-color: #6c757d; // Secondary button color
+            border: none;
+  
+            &:hover {
+              background-color: #5a6268; // Darker shade on hover
+            }
+          }
+        }
+      }
+  
+      .alert-info {
+        margin-top: 1rem; // Space above the add product message
+        padding: 1rem; // Padding for the alert
+        background-color: #d1ecf1; // Light blue background for info message
+        color: #0c5460; // Dark blue text color
+        border: 1px solid #bee5eb; // Light blue border for info message
+        border-radius: 0.25rem; // Rounded corners for info message
+      }
     }
-    .redirect-link{
-        margin: auto;
-    }
-    .alert-danger{
-        font: 13px sans-serif;
-    }
-}
+  }
+  

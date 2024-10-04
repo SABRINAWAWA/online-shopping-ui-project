@@ -1,12 +1,98 @@
-.order-details-container{
-    margin:40px;
-}
-.header{
-    text-align: center;
-}
-
-.order-items{
-    .header{
-        margin-top: 10px;
+.order-details-container {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #343a40;
+  }
+  
+  .d-flex {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card {
+    margin: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    transition: box-shadow 0.2s;
+  
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-}
+  
+    .card-body {
+      padding: 1.5rem;
+  
+      h5 {
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        color: #495057;
+      }
+  
+      p {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        color: #212529;
+  
+        strong {
+          color: #007bff;
+        }
+      }
+    }
+  }
+  
+  .order-items {
+    margin-top: 1.5rem;
+  
+    h3 {
+      font-size: 1.75rem;
+      color: #495057;
+      margin-bottom: 1rem;
+    }
+  
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+      background-color: #ffffff;
+  
+      th, td {
+        padding: 0.75rem;
+        text-align: left;
+        border: 1px solid #dee2e6;
+      }
+  
+      th {
+        background-color: #f1f1f1;
+        color: #343a40;
+      }
+  
+      tr:nth-child(even) {
+        background-color: #f8f9fa;
+      }
+    }
+  
+    .btn {
+      margin: 0.5rem;
+    }
+  }
+  
+  .no-items-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+  }
+  
+  .alert {
+    margin-top: 1rem;
+    color: #d9534f; // Color for any alert messages.
+  }
+  

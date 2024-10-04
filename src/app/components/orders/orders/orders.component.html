@@ -36,12 +36,11 @@
                 <td>{{ order.orderItemCount }}</td>
                 <td>{{ order.total | currency }}</td>
                 <td *ngIf="userRole==='ADMIN'">{{ order.profit | currency }}</td>
-                <td>
+                <td class="d-flex">
                     <a class="btn btn-sm btn-primary" (click)="goToOrderDetailPage(order.orderId)">View</a>
-                    <a *ngIf="order.orderStatus === 'PROCESSING'" class="btn btn-sm btn-danger"
-                        (click)="cancelOrder(order.orderId)">Cancel</a>
-                    <a *ngIf="userRole==='ADMIN' && order.orderStatus === 'PROCESSING'"
-                        class="btn btn-sm btn-success" (click)="completeOrder(order.orderId)">Complete</a>
+                    <a *ngIf="order.orderStatus === 'PROCESSING'" class="btn btn-sm btn-danger" (click)="cancelOrder(order.orderId)">Cancel</a>
+                    <a *ngIf="userRole==='ADMIN' && order.orderStatus === 'PROCESSING'" class="btn btn-sm btn-success"
+                        (click)="completeOrder(order.orderId)">Complete</a>
                 </td>
             </tr>
         </tbody>

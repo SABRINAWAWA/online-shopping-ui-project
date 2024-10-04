@@ -8,6 +8,7 @@ import { LoginComponent } from './components/login/login.component';
 import { CheckoutPageComponent } from './components/orders/checkout-page/checkout-page.component';
 import { OrderDetailsComponent } from './components/orders/order-details/order-details.component';
 import { OrdersComponent } from './components/orders/orders/orders.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AddProductComponent } from './components/products/add-product/add-product.component';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 import { ProductComponent } from './components/products/product/product.component';
@@ -81,6 +82,11 @@ export const routes: Routes = [
   {
     path: 'orders',
     component: OrdersComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'pageNotFound',
+    component: PageNotFoundComponent,
     canActivate: [AuthGuard]
   }
 ];

@@ -29,6 +29,7 @@ import { AuthService } from './services/auth.service';
 import { ProductService } from './services/product.service';
 import { RouterService } from './services/router.service';
 import { OrdersComponent } from './components/orders/orders/orders.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { OrdersComponent } from './components/orders/orders/orders.component';
     ShoppingCartComponent,
     CheckoutPageComponent,
     AppComponent,
-    OrdersComponent
+    OrdersComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

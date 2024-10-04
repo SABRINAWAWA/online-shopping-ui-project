@@ -67,9 +67,9 @@
             </div>
 
             <div class="d-flex justify-content-evenly ">
-                <a *ngIf="order.orderStatus === 'PROCESSING' && userRole==='ADMIN'" class="btn btn-sm btn-success"
+                <a *ngIf="order.orderStatus === 'PROCESSING' && userRole==='ADMIN'" class="btn btn-md btn-success"
                     (click)="completeOrder(order.orderId)">Complete</a>
-                <a *ngIf="order.orderStatus === 'PROCESSING'" class="btn btn-sm btn-danger"
+                <a *ngIf="order.orderStatus === 'PROCESSING'" class="btn btn-md btn-danger"
                     (click)="cancelOrder(order.orderId)">Cancel</a>
             </div>
 

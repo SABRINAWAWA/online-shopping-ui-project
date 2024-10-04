@@ -1,0 +1,129 @@
+.container {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #343a40;
+  }
+  
+  .address-section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+  
+    h5 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #495057;
+    }
+  
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      
+      input {
+        margin-right: 0.5rem;
+      }
+    }
+  
+    .alert {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+  
+    .btn-primary {
+      margin-top: 1rem;
+    }
+  }
+  
+  .cart-items-section {
+    margin-bottom: 2rem;
+  
+    h5 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #495057;
+    }
+  
+    .cart-item {
+      margin-bottom: 1rem;
+      border: 1px solid #ced4da;
+      border-radius: 0.5rem;
+      background-color: #ffffff;
+  
+      .card-body {
+        padding: 1rem;
+  
+        .row {
+          margin-bottom: 1rem;
+  
+          .card-title {
+            font-size: 1.25rem;
+            color: #212529;
+          }
+  
+          .card-subtitle {
+            font-size: 1rem;
+            color: #6c757d;
+          }
+  
+          .card-text {
+            font-size: 1rem;
+            color: #212529;
+  
+            strong {
+              font-weight: bold;
+            }
+          }
+  
+          .btn-danger {
+            margin-top: 1rem;
+          }
+        }
+  
+        label {
+          font-weight: bold;
+        }
+  
+        input[type="number"] {
+          width: 100%;
+          padding: 0.5rem;
+          border: 1px solid #ced4da;
+          border-radius: 0.25rem;
+        }
+      }
+    }
+  }
+  
+  .list-group-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+  
+    &.text-center {
+      font-size: 1rem;
+    }
+  
+    &.d-flex {
+      justify-content: space-between;
+    }
+  }
+  
+  .btn-warning {
+    margin-right: 1rem;
+  }
+  
+  .alert {
+    margin-top: 1rem;
+  }
+  
