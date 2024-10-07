@@ -40,11 +40,6 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
-  },
-  {
     path: 'order-detail/:id',
     component: OrderDetailsComponent,
     canActivate: [AuthGuard]
@@ -88,5 +83,9 @@ export const routes: Routes = [
     path: 'pageNotFound',
     component: PageNotFoundComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    redirectTo: '/home'
   }
 ];
